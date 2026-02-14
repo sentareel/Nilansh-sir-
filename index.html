@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Valentine Question 💘</title>
+
 <style>
 body {
   background: linear-gradient(135deg, #ff9a9e, #fad0c4);
@@ -10,15 +11,10 @@ body {
   text-align: center;
   padding-top: 100px;
   overflow: hidden;
+  margin: 0;
 }
 
-h1 {
-  font-size: 40px;
-  color: white;
-}
-
-p {
-  font-size: 20px;
+h1, p {
   color: white;
 }
 
@@ -46,21 +42,34 @@ button {
 button:hover {
   transform: scale(1.1);
 }
+
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 24px;
+  animation: floatUp 4s linear infinite;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-800px); opacity: 0; }
+}
 </style>
 </head>
 
 <body>
 
 <h1>💖 To: Me (Main Character Energy 🎓✨) 💖</h1>
-
 <p>🎶 Violins playing... slow motion entry... 🎶</p>
 <p>Hey Nilansh 😎</p>
-<p>After surviving VIT exams, placements and life...</p>
-<p>One final question remains.</p>
-<p><strong>Will you be your own Valentine? 💘</strong></p>
+<p>Will you be your own Valentine? 💘</p>
 
 <button id="yesBtn" onclick="yesClicked()">YES (Full Marks 💯✨)</button>
 <button id="noBtn" onmouseover="moveButton()">NO (Backlog 😔📚)</button>
+
+<audio id="celebrationSound">
+  <source src="https://www.soundjay.com/buttons/sounds/button-09.mp3" type="audio/mpeg">
+</audio>
 
 <script>
 function yesClicked() {
@@ -68,8 +77,25 @@ function yesClicked() {
   <h1>🎉 Confetti Burst 🎉</h1>
   <p>That’s the VITian mindset 😌🎓</p>
   <p>Self-love secured successfully 💖</p>
-  <p>Happy Self-Valentine’s Day, Mr. Graduate 🌹✨</p>
   `;
+
+  // Play sound
+  var sound = document.getElementById("celebrationSound");
+  sound.play();
+
+  // Create floating hearts
+  setInterval(function() {
+    var heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.fontSize = (Math.random() * 20 + 20) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(function() {
+      heart.remove();
+    }, 4000);
+  }, 300);
 }
 
 function moveButton() {
