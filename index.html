@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Valentine Question 💘</title>
+<style>
+body {
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding-top: 100px;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 40px;
+  color: white;
+}
+
+p {
+  font-size: 20px;
+  color: white;
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 18px;
+  margin: 20px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#yesBtn {
+  background-color: #ff4d6d;
+  color: white;
+}
+
+#noBtn {
+  background-color: white;
+  color: #ff4d6d;
+  position: absolute;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+</style>
+</head>
+
+<body>
+
+<h1>💖 To: Me (Main Character Energy 🎓✨) 💖</h1>
+
+<p>🎶 Violins playing... slow motion entry... 🎶</p>
+<p>Hey Nilansh 😎</p>
+<p>After surviving VIT exams, placements and life...</p>
+<p>One final question remains.</p>
+<p><strong>Will you be your own Valentine? 💘</strong></p>
+
+<button id="yesBtn" onclick="yesClicked()">YES (Full Marks 💯✨)</button>
+<button id="noBtn" onmouseover="moveButton()">NO (Backlog 😔📚)</button>
+
+<script>
+function yesClicked() {
+  document.body.innerHTML = `
+  <h1>🎉 Confetti Burst 🎉</h1>
+  <p>That’s the VITian mindset 😌🎓</p>
+  <p>Self-love secured successfully 💖</p>
+  <p>Happy Self-Valentine’s Day, Mr. Graduate 🌹✨</p>
+  `;
+}
+
+function moveButton() {
+  var button = document.getElementById("noBtn");
+  var x = Math.random() * window.innerWidth;
+  var y = Math.random() * window.innerHeight;
+  button.style.left = x + "px";
+  button.style.top = y + "px";
+}
+</script>
+
+</body>
+</html>
